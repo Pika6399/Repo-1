@@ -11,11 +11,11 @@ pipeline {
             steps {
                 sh 'yum install docker -y'
                 sh 'service docker start'
-                sh 'docker run -dp 80:80 --name webserver1 httpd'
+                sh 'docker run -dp 80:80 --name webserver2 httpd'
                 sh 'cd /'
                 sh 'chmod 777 -R mnt'
                 sh 'cd /mnt/project'
-                sh 'docker cp index.html webserver1:/usr/local/apache2/htdocs'
+                sh 'docker cp index.html webserver2:/usr/local/apache2/htdocs'
             }
         }
     }
