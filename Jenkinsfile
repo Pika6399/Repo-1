@@ -2,7 +2,7 @@ pipeline {
     agent {
         label {
             label "built-in"
-            customWorkspace "/mnt/project"
+            customWorkspace "/project"
         }
     }
 
@@ -13,8 +13,8 @@ pipeline {
                 sh 'service docker start'
                 sh 'docker run -dp 80:80 --name webserver2 httpd'
                 sh 'cd /'
-                sh 'chmod 777 -R mnt'
-                sh 'cd /mnt/project'
+                sh 'chmod 777 -R project'
+                sh 'cd /project'
                 sh 'docker cp index.html webserver2:/usr/local/apache2/htdocs'
             }
         }
