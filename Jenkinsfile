@@ -11,7 +11,7 @@ pipeline {
             steps {
                 sh 'yum install docker -y'
                 sh 'service docker start'
-                sh 'docker run -itdp 80:80 --name webserver1 httpd bash'
+                sh 'docker run -dp 80:80 --name webserver1 httpd'
                 sh 'cd /'
                 sh 'chmod 777 -R mnt'
                 sh 'cd /mnt/project'
